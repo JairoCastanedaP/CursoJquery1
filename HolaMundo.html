@@ -6,8 +6,20 @@
     <title>Document</title>
     <link rel="stylesheet" href="bootstrap.min.js">
     <script src="jquery.min.js"></script>
+    <script>
+        $(document).ready(function (){
+            $("#hola").click(function (){
+                $("#hola").css("color","red");
+                $("#hola").css("background-color","yellow");
+                }
+            );
+        });
+    </script>
 </head>
 <body>
+    <div id="hola">
+        <h1>Hola Mundo</h1>
+    </div>
     
 </body>
 </html>
