@@ -70,10 +70,8 @@ $(document).ready(function (){
     cadena="";
     });
 
-    /*for(var x=0;x<=aux;x++){
-        cadena+="<tr><td>"+x+"</td>"+"<td>"+x+1+"</td></tr>"
-    }*/
-    //cadena+="</table>";
-    
-
+    $("p").click(function(){
+        $(this).css("color","gray");
+        $(this).css("font-size","110%");
+    });
 });
