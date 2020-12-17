@@ -1,0 +1,13 @@
+﻿//Evita el uso del botón Back del Navegador
+history.pushState(null, null, document.URL);
+window.addEventListener('popstate', function () {
+    history.pushState(null, null, document.URL);
+});
+
+///Sobreescribe el PageLoad base para agregar al gridView la CssClass en cada postback asincrono
+function pageLoad(sender, args) {
+
+    basePageLoad(sender, args);
+
+    $('table thead').addClass('brand-color');
+}

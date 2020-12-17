@@ -1,0 +1,4 @@
+@media print {
+  /* print style sheets go here */
+.table-header, .col-30, .header, .footer, .alert{display: none;}
+}

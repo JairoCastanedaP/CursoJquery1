@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <script src="jquery.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <script>
+        $(document).ready(function(){
+            $("#guerra").click(function(){
+                $("img[title='MULTIPLAYER']").css("border","16px");
+                $("img[title='MULTIPLAYER']").css("border-style","solid");
+                $("img[title='MULTIPLAYER']").css("border-color","orange");
+            });
+            $("#Covenant").click(function(){
+                $("img[title='FPS']").css("border","16px");
+                $("img[title='FPS']").css("border-style","solid");
+                $("img[title='FPS']").css("border-color","orange");
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <img src="imagenes/COD.jpg" width="160" height="196" title="MULTIPLAYER">
+    <img src="imagenes/fifa.jpg" width="160" height="196" title="FPS">
+    <img src="imagenes/fortnite.jpg" width="160" height="196" title="MULTIPLAYER">
+    <img src="imagenes/gears.jpg" width="160" height="196" title="FPS">
+    <img src="imagenes/halo.jpg" width="160" height="196" title="MULTIPLAYER">
+    <img src="imagenes/GTA5.jpg" width="160" height="196" title="FPS">
+    <img src="imagenes/WARCRAFT.jpg" width="160" height="196" title="FPS">
+
+    <br/>
+    <input type="button" id="guerra"  value="MULTIPLAYER">
+    <input type="button" id="Covenant"  value="MULTIPLAYER">
+</body>
+
+</html>
