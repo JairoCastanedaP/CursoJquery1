@@ -9,15 +9,54 @@
     <script src="jquery.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <script src="functions.js"></script>
+    <style>
+        #sqlmouse{
+            width: 300px;
+            height: 300px;
+            background-image: url(imagenes/fortnite.jpg);
+            background-repeat: no-repeat;
+            background-size: 100%;
+        }
+        #sqlmouse2{
+            width: 300px;
+            height: 300px;
+            background-image: url(imagenes/fortnite.jpg);
+            background-repeat: no-repeat;
+            background-size: 100%;
+        }
+    </style>
 </head>
 
 <body>
-    <h1>This selector</h1>
+    <h1>This is the firts selector</h1>
     <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nemo aut debitis quod, ipsa doloremque animi quae sit illo! Asperiores officia repudiandae amet dolor alias praesentium nostrum eius necessitatibus saepe voluptate!</p>
+    <h1>This is the second selector</h1>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil provident sit in nam facilis. Quod debitis quia, dolor possimus assumenda quo odit soluta deleniti. Nulla nihil facere sed! Temporibus, architecto.</p>
     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugiat suscipit facere nesciunt quos odio a quo voluptatem mollitia non nulla, pariatur sed maiores iusto tempora voluptates consequatur ad unde doloribus?</p>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem eos similique, distinctio architecto magni cupiditate consequuntur voluptatem quae qui quo delectus, recusandae rerum dolorem eligendi? Iusto ad eligendi nulla similique?</p>
-    
+    <p class="intro">Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem eos similique, distinctio architecto magni cupiditate consequuntur voluptatem quae qui quo delectus, recusandae rerum dolorem eligendi? Iusto ad eligendi nulla similique?</p>
+    <div id="sqlmouse"></div>
+    <div id="sqlmouse2"></div>
+    <form name="form1" method="POST" action="">
+        <table>
+            <tr>
+                <td>Nombre</td>
+                <td><input type="text" name="nombre" id="nombre"></td>
+            </tr>
+            <tr>
+                <td>Apellidos</td>
+                <td><input type="text" name="apellidos" id="apellidos"></td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td><input type="text" name="email" id="email"></td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td><input type="submit" name="button" id="button" value="Submit"></td>
+            </tr>
+
+        </table>
+    </form>
     <div id="hola">
         <h1>Hola Mundo</h1>
     </div>
@@ -25,7 +64,7 @@
         <img src="sqlserver.png" id="foto">
     </div>
     <input type="button" id="halo" value="halo2">
-    <input type="button" id="gears" value="RAM">
+    <input type="button" id="gears" value="Gears">
     <input type="button" id="fifa" value="Fifa2021">
     <br>
     <img src="imagenes/halo.jpg" class="halo">

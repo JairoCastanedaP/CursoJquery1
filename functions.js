@@ -1,6 +1,36 @@
 $(document).ready(function (){
+
+    
     var aux=0,aux2= [0,0,0];
     var cadena="";
+
+    $("input").focus(function(){
+        $(this).css("background-color","yellow");
+    });
+    $("input").blur(function(){
+        $(this).css("background-color","white");
+    });
+    $("input").keydown(function(){
+        $(this).css("background-color","green");
+    });
+    $("input").keyup(function(){
+        $(this).css("background-color","gray");
+    });
+    $("p:first").css("color","red");
+    $("#sqlmouse").mouseenter(function(){
+        $("#sqlmouse").css("background-image","url(imagenes/COD.jpg)");
+    });
+    $("#sqlmouse").mouseleave(function(){
+        $("#sqlmouse").css("background-image","url(imagenes/halo.jpg)");
+    });
+    $("#sqlmouse").mousedown(function(){
+        $("#sqlmouse2").css("background-image","url(imagenes/WARCRAFT.jpg)");
+    });
+    $("#sqlmouse").mouseup(function(){
+        $("#sqlmouse").css("background-image","url(imagenes/GTA5.jpg)");
+    });
+
+
     $("#hola").click(function (){
         $("#hola").css("color","red");
         $("#hola").css("background-color","yellow");
@@ -11,6 +41,7 @@ $(document).ready(function (){
     });
 
     $("#halo").click(function(){
+        $("p.intro").css("background-color","green");
         aux++;cadena="";aux2[0]++;
         
         if(aux2[0]<4){
@@ -49,6 +80,7 @@ $(document).ready(function (){
         
     });
     $("#gears").click(function(){
+        $("h1:first").hide();
         aux++;cadena="";aux2[1]++;
         $(".gears").css("border","10px");
         $(".gears").css("border-style","solid");
