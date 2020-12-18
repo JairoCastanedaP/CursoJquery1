@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery.min.js"></script>
+    <style>
+
+        #halo{width: 200px;height: 200px;background-image: url(imagenes/halo.jpg);background-repeat: no-repeat;background-size: 100%;}
+        #gears{width: 200px;height: 200px;background-image: url(imagenes/gears.jpg);background-repeat: no-repeat;background-size: 100%;}
+        #gta5{width: 200px;height: 200px;background-image: url(imagenes/GTA5.jpg);background-repeat: no-repeat;background-size: 100%;display: none;}
+    </style>
+    <script>
+        $(document).ready(function(){
+            $("#mostrar").click(function(){$("#halo").show(4000);});
+            $("#ocultar").click(function(){$("#halo").hide(4000);});
+            $("#fadein").click(function(){$("#gears").fadeIn(2000);});
+            $("#fadeout").click(function(){$("#gears").fadeOut(2000);});
+            $("#encabezado").click(function(){$("#gta5").slideToggle("slow")});
+            $("#correr").click(function(){ $("div").animate({left:'650px'},5000);});
+            $("#regresar").click(function(){ $("div").animate({left:'650px'},5000);});
+        });
+    </script>
+</head>
+<body>
+    <div id="encabezado">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, rem. Ratione, iure a. Ratione nisi corrupti magnam fugit corporis, officiis nostrum excepturi sapiente temporibus incidunt. Magnam a sint incidunt ex.</div>
+    <div><img src="imagenes/fifa.jpg"></div>
+    <div id="gta5"></div>
+    <div id="halo"></div>
+    <input type="button" value="Mostrar" id="mostrar">
+    <input type="button" value="ocultar" id="ocultar"> 
+    <input type="button" value="correr" id="correr">
+    <input type="button" value="regresar" id="regresar">
+    <div id="gears"></div>
+    <input type="button" value="fade in" id="fadein">
+    <input type="button" value="fade out" id="fadeout">  
+</body>
+</html>
