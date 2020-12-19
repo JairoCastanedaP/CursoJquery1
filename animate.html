@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            position: absolute;
+        }
+    </style>
+    <script src="jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#corre").click(function(){
+                $("div").animate({left:'650px'},5000);
+            });
+            $("#regresa").click(function(){
+                $("div").animate({left:'10px'},5000);
+            });
+        });
+    </script>
+</head>
+<body>
+    <input type="button" value="corre" id="corre">
+    <input type="button" value="regresa" id="regresa">
+    <div>
+        <img src="imagenes/gears.jpg">
+    </div>
+</body>
+</html>
