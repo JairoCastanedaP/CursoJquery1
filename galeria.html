@@ -4,6 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Galería</title>
+    <script src="jquery.min.js"></script>
+    <script>
+        var foto=1;
+        var numFotos=7;
+        var tiempo;
+
+        $(document).ready(inicio);
+
+        function inicio(){
+            tiempo=setTimeout(cargaFoto,5000);
+        }
+        function cargaFoto(){
+            foto++;
+            if(foto>numFotos) foto=1;
+            $("#foto").fadeOut(1000,cambiaFoto);
+        }
+        function cambiaFoto(){
+            $("#foto").attr("src","imagenes/fondo"+foto+".jpg");
+            console.log("foto"+foto);
+            $("#foto").fadeIn(1000);
+            tiempo=setTimeout(cargaFoto,5000);
+        }
+    </script>
     <style>
         body{ width: 450px;margin: 100px auto; position: relative;}
         article{}
@@ -16,7 +39,7 @@
 <body>
     <section>
         <article>
-            <img id="imagen" src="imagenes/COD.jpg" width="450px" height="320px">
+            <img id="foto" src="imagenes/fondo1.jpg" width="450px" height="320px">
         </article>
         <footer>
             <div id="texto">Texto de las imagenes</div>
