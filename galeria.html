@@ -10,10 +10,47 @@
         var numFotos=7;
         var tiempo;
 
+    
         $(document).ready(inicio);
 
+        var textos=new Array();
+        textos.push("");
+        textos.push("texto1");
+        textos.push("texto2");
+        textos.push("texto3");
+        textos.push("texto4");
+        textos.push("texto5");
+        textos.push("texto6");
+        textos.push("texto7");
+
         function inicio(){
-            tiempo=setTimeout(cargaFoto,5000);
+            tiempo=setTimeout(cargaFoto,2000);
+            $("#izq,#der").fadeTo(1000,0.2);
+            $("#foto1").html("<img src='imagenes/circuloNegro.png'>");
+            $("#texto").text(textos[foto]);
+            $("#foto1,#foto2,#foto3,#foto4,#foto5,#foto6,#foto7").click(function(){
+                //Detener el Timeout
+                clearTimeout(tiempo);
+                foto=$(this).attr("alt");
+                foto--;
+                cargaFoto();
+            });
+            $("#izq").click(function(){
+                clearTimeout(tiempo);
+                foto-=2;
+                if(foto<0)f=numFotos-1;
+                cargaFoto();
+            }); 
+            $("#der").click(function(){
+                clearTimeout(tiempo);
+                cargaFoto();
+            }); 
+            $("#der,#izq").mouseenter(function(){
+                $(this).fadeTo(500,1);
+            });
+            $("#der,#izq").mouseleave(function(){
+                $(this).fadeTo(500,0.2);
+            });
         }
         function cargaFoto(){
             foto++;
@@ -21,8 +58,12 @@
             $("#foto").fadeOut(1000,cambiaFoto);
         }
         function cambiaFoto(){
+            for(i=1;i<=numFotos;i++){
+                $("#foto"+i).html("<img src='imagenes/circuloGris.png'>");
+            }
+            $("#foto"+foto).html("<img src='imagenes/circuloNegro.png'>");
+            $("#texto").text(textos[foto]);
             $("#foto").attr("src","imagenes/fondo"+foto+".jpg");
-            console.log("foto"+foto);
             $("#foto").fadeIn(1000);
             tiempo=setTimeout(cargaFoto,5000);
         }
@@ -30,10 +71,10 @@
     <style>
         body{ width: 450px;margin: 100px auto; position: relative;}
         article{}
-        footer{background-color: rgba(0,0,0,0.5);width: 450px;height: 60px;color: white;}
+        footer{position: absolute;left: 0;top: 262px ;background-color: rgba(0,0,0,0.5);width: 450px;height: 60px;color: white;}
         #foto1,#foto2,#foto3,#foto4,#foto5,#foto6{ float: left;cursor: pointer; margin: 5px;} 
-        #izq{cursor: pointer; float: left;}
-        #der{cursor: pointer; float: left;}
+        #izq{cursor: pointer; position: absolute; left: 0;top: 150px;}
+        #der{cursor: pointer;position: absolute;left: 432px; top: 150px; }
     </style>
 </head>
 <body>
@@ -41,16 +82,17 @@
         <article>
             <img id="foto" src="imagenes/fondo1.jpg" width="450px" height="320px">
         </article>
+        <div id="izq"><img src="imagenes/flechaIzquierda.png" ></div>
+        <div id="der"><img src="imagenes/flechaDerecha.png" ></div>
         <footer>
             <div id="texto">Texto de las imagenes</div>
-            <div id="foto1" ><img src="imagenes/circuloGris.png" ></div>
-            <div id="foto2" ><img src="imagenes/circuloAzul.png" ></div>
-            <div id="foto3" ><img src="imagenes/circuloGris.png" ></div>
-            <div id="foto4" ><img src="imagenes/circuloGris.png" ></div>
-            <div id="foto5" ><img src="imagenes/circuloGris.png" ></div>
-            <div id="foto6" ><img src="imagenes/circuloGris.png" ></div>
-            <div id="izq"><img src="imagenes/flechaIzquierda.png" ></div>
-            <div id="der"><img src="imagenes/flechaDerecha.png" ></div>
+            <div id="foto1" alt="1"><img src="imagenes/circuloGris.png" ></div>
+            <div id="foto2" alt="2"><img src="imagenes/circuloGris.png" ></div>
+            <div id="foto3" alt="3"><img src="imagenes/circuloGris.png" ></div>
+            <div id="foto4" alt="4"><img src="imagenes/circuloGris.png" ></div>
+            <div id="foto5" alt="5"><img src="imagenes/circuloGris.png" ></div>
+            <div id="foto6" alt="6"><img src="imagenes/circuloGris.png" ></div>
+            <div id="foto7" alt="7"><img src="imagenes/circuloGris.png" ></div>
         </footer>
     </section>
     
