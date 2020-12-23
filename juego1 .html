@@ -4,12 +4,105 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="jquery.min.js"></script>
     <style>
+        #tablero{ width: 650px;margin: 10px auto;}
         .carta{
-            border-radius: 1em;border: 3px solid white;border-color: #F93;
-            cursor: pointer;display: inline-block;height: 110px; width: 110px;margin: 3em;overflow: hidden;
+            border-radius: 1em;border: 3px solid white;background-color: #F93;
+            cursor: pointer;display: inline-block;height: 110px; width: 110px;
+            margin: .3em;overflow: hidden;vertical-align: top;
         }
+        .desaparece{
+            background-color:white;display: inline-block;height: 110px; width: 110px;
+            vertical-align: top;color: white; margin: .3em;
+        }
+        #tiempo{float: left;font-size: 30px;}
+        #puntos{float:right;font-size: 30px;}
+        #tablero p{color: white;margin-top: 1.2em; z-index: 1;font-size: 30px;text-align: center;display: none;}
     </style>
+    <script>
+        var numCartas=10;
+        var carta1=" ";
+        var carta2=" ";
+        var score=0;
+        var puntos=0;
+        $(document).ready(inicio);
+
+        function inicio(){
+            cargaCartas();
+            $(".carta").on("click",voltear);
+        }
+        function voltear(){
+            //desplegar el numero
+            $(this).children().css("display","block");
+            score++;
+            $("#puntos").html("Score: ",score);
+            if(carta1== " "){
+                carta1=$(this);
+            }
+            else{
+                carta2=$(this);
+                $(".carta").off();
+                setTimeout(verificar,1000);
+            }
+        }
+        function verificar(){
+            if(carta1.attr("data-num")==carta2.attr("data-num")){
+                carta1.removeClass("carta").addClass("desaparece");
+                carta2.removeClass("carta").addClass("desaparece");
+                puntos++;
+                carta1=carta2=" ";
+                if(puntos==numCartas){
+                    alert("felicidades, has completado el juego");
+                }
+            }
+            else{
+                carta1.children().css("display","none");
+                carta2.children().css("display","none");
+            }
+            carta1=" ";
+            $(".carta").on("click",voltear);
+        }
+        function cargaCartas(){
+            var numeros_array= new Array();
+            var num=0;
+            for(var i=1;i<=numCartas;i++){
+                numeros_array.push(i,i);
+            }
+            $('.carta').each(function(i){
+                num= numeros_array.length;
+                n=Math.floor(Math.random()*num);
+                $(this).html("<p>"+numeros_array[n]+"</p>");
+                $(this).attr("data-num",numeros_array[n]);
+                numeros_array.splice(n,1);
+            });
+            tiempo(5);
+        }
+        function tiempo(limite){
+            var min=limite-1;
+            var seg=59;
+            t=setInterval(function(){
+                $("#tiempo").html(" ");
+                if(seg<10){
+                    $("#tiempo").append("00:0"+min+":0"+seg);
+                }
+                else{
+                    $("#tiempo").append("00:0"+min+":"+seg);
+                }
+                seg--;
+                if(seg<0){
+                    seg=59;
+                    min--;
+                }
+                if(min<0){
+                    clearInterval(t);
+                    alert("se acabó el tiempo");
+                    $(".carta").off();
+                }
+            },1000);
+        }
+
+    </script>
 </head>
 <body>
     <div id="tablero">
@@ -19,6 +112,22 @@
         <div class="carta" data-num=""></div>
         <div class="carta" data-num=""></div>
         <br>
+        <div class="carta" data-num=""></div>
+        <div class="carta" data-num=""></div>
+        <div class="carta" data-num=""></div>
+        <div class="carta" data-num=""></div>
+        <div class="carta" data-num=""></div>
+        <br>
+        <div class="carta" data-num=""></div>
+        <div class="carta" data-num=""></div>
+        <div class="carta" data-num=""></div>
+        <div class="carta" data-num=""></div>
+        <div class="carta" data-num=""></div>
+        <br>
+        <div id="score">
+            <div id="tiempo">00:00:00</div>
+            <div id="puntos"></div>
+        </div>
     </div>
 </body>
 </html>
