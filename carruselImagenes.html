@@ -9,17 +9,97 @@
         #contenedorCarrusel{height: 340px;margin: 0;background: #ccc 0px 0px url(imagenes/sogamoso.jpg); border-radius: 1em;box-shadow: 10px 10px 5px #000;}
         #contenedorTexto{margin: 0px 0px 0px 165px; width: 435px;padding: 0px 0px 0px 20px;}
         #carrusel{margin: 0px auto ;height: 300px; width: 600px;}
+        #datos{display: none;}
+        #descripcion h2{font-family: Verdana, Geneva, Tahoma, sans-serif;font-size: 14px; margin: 20px 0px 5px 0px; color: #03c;}
+        #descripcion p{ font-family: Verdana, Geneva, Tahoma, sans-serif;font-size: 12px; text-align: justify; color:blue;}
     </style>
+    <script src="jquery.min.js"></script>
+    <script src="jquery.roundabout.min.js"></script>
+    <script>
+        $(document).ready(inicio);
+        
+        function inicio(){
+            $("#datos .item").each(function(i){
+                $('#carrusel').append($(this).find(".foto").html());
+            });
+            crearCarrusel();
+            despliegaTexto();
+        }
+        function crearCarrusel(){
+            $('#carrusel').roundabout({
+                startingChild: window.startingItem,
+                childSelector: "img",
+                tilt:-4.5 ,
+                minOpacity: 0.75,
+                minScale: 0.75,
+                duration :1200,
+                clickToFocus:true,
+                clickToFocusCallback:despliegaTexto
+            });
+        }
+        function despliegaTexto(){
+            var elemento= $('#carrusel').data("roundabout").childInFocus;
+            var texto=$("#datos .item .texto:eq("+elemento+")").html();
+            $("#descripcion").html(texto);
+        }
+
+    </script>
 </head>
 <body>
     <div id="contenido">
         <div id="contenedorCarrusel">
             <div id="carrusel">
-                
             </div>
             <div id="contenedorTexto">
                 <div id="descripcion">
 
+                </div>
+                <div id="datos">
+                    <div class="item">
+                        <div class="foto">
+                            <img src="imagenes/gears.jpg" alt="gears of war" width="150px" height="100px">
+                        </div>
+                        <div class="texto">
+                            <h2>Gears of war 5</h2>
+                            <p>gears es un juego asdglmasñodignkas{dfpm asdvadsv sad asdf safd safd </p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="foto">
+                            <img src="imagenes/GTA5.jpg" alt="GRAND THEFT AUTO" width="150px" height="100px">
+                        </div>
+                        <div class="texto">
+                            <h2>GRAND THEFT AUTO 5</h2>
+                            <p>GTA 5 un juego asdglmasñodignkas{dfpm asdvadsv sad asdf safd safd </p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="foto">
+                            <img src="imagenes/fortnite.jpg" alt="FORTNITE" width="150px" height="100px">
+                        </div>
+                        <div class="texto">
+                            <h2>FORTNITE</h2>
+                            <p>FORTNITE es un juego asdglmasñodignkas{dfpm asdvadsv sad asdf safd safd </p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="foto">
+                            <img src="imagenes/halo.jpg" alt="HALO" width="150px" height="100px">
+                        </div>
+                        <div class="texto">
+                            <h2>HALO 5</h2>
+                            <p>HALO es un juego asdglmasñodignkas{dfpm asdvadsv sad asdf safd safd </p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="foto">
+                            <img src="imagenes/fifa.jpg" alt="fifa" width="150px" height="100px">
+                        </div>
+                        <div class="texto">
+                            <h2>fifa 5</h2>
+                            <p>fifa es un juego asdglmasñodignkas{dfpm asdvadsv sad asdf safd safd </p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
