@@ -13,6 +13,8 @@
         #foto{clear: both;cursor: pointer; width: 400px;height: 300px;margin: 0 auto;}
     </style>
     <script>
+        var t=1,f=0
+        var bandera=false;
         $(document).ready(inicio);
 
         function inicio(){
@@ -24,6 +26,28 @@
                 function(){
                     $(this).children(".tooltip").animate({top:(h+1)+"px"},500)
                 });
+                $("#foto").mouseover(function(){
+                    if(bandera==false){
+                        bandera=true;
+                    t= setTimeout(cambiaFoto,1000);
+                    }
+                });
+                $("#foto").mouseout(function(){
+                    if(bandera==true)
+                    {
+                        clearTimeout(t);
+                        bandera=false;
+                    }
+                });
+
+        }
+        function cambiaFoto(){
+            if(bandera){
+            f++;
+            if(f>6) f=1;
+            $("#foto").html("<img src='imagenes/fondo"+f+".jpg' width='400px' height='300px'>");
+            t=setTimeout(cambiaFoto,1000);
+            }
         }
     </script>
 </head>
