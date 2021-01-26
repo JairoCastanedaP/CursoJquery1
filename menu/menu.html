@@ -1,20 +1,176 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        header, section, nav, footer, article{
+            display:block;
+            margin:0;
+            padding:0;
+        }
+        html, body, h1, h2, h3, h4, h5, h6, p{
+            margin:0;
+            padding:0;
+        }
+        html{
+            background:#fff;
+        }
+        body{
+            width:960px;
+            margin:0 auto;
+            background:#000;
+            font-family:Verdana, Geneva, sans-serif;
+        }
+        header{
+            height:90px;
+            background:#213F52;
+        }
+        article, aside{
+            background:#FCF7CD;
+        }
+        footer{
+            height:60px;
+            background:#213F52;
+            clear:both;
+        }
+        /* Fuentes */
+        h1{
+            font-size:2.2em;
+            color:#FCF7CD;
+             text-align: center;
+            margin-bottom:5px;
+        }
+        h2{
+            font-size:1.8em;
+            color:#FCF7CD;
+             text-align: center;
+            padding-top:.2em;
+        }
+        h3{
+            font-size:.8em;
+            color:#f2e3b6;
+             text-align: center;
+            padding-top:.2em;
+        }
+        p{
+            font-size:1em;
+            padding-top:1em;
+            padding-left:1em;
+            padding-right:1em;
+        }
+        a{
+            font-size:0.6em;
+            color:#f2e3b6;
+            text-align: left;
+            padding-top:.6em;
+            text-decoration: none;
+            letter-spacing: 0.5em;
+        }
+        /*Clases*/
+        #izq{
+            float:left;
+            width:600px;
+            height:460px;
+        }
+        #der{
+            float:right;
+            width:360px;
+            height:460px;
+        }
+        ul, li{
+            display:inline;
+        }
+        img{
+            float:left;
+            padding-right:1em;
+        }
+        .imgIzq{
+            clear:both;
+            margin-left:auto;
+            margin-right:auto;
+            margin-top:0;
+            margin-bottom:1em;
+        }
+        </style>
+        <style>
+        /*nav*/
+        .nav_menu{
+            position:relative;
+            z-index:1000;
+            margin:0;
+            padding:0;
+        }
+        /* drop menu*/
+        .nav_menu ul.dropmenu li{
+            height:28px;
+            text-align:left;		
+        }
+        .nav_menu ul.dropmenu li:hover{
+            background-color:#006699;
+        }
+        .nav_menu ul.dropmenu li:selected{
+            background-color:black;
+        }
+        .nav_menu ul.dropmenu li a{
+            color:#fff;
+            text-decoration:none;
+            padding:0;
+            line-height:12px;
+            letter-spacing:0.4em;
+        }
+        </style>
+        
+    <script src="jquery.min.js"></script>
+    <script src="jquery.dropdown.js"></script>
 </head>
+
 <body>
-    <header>VideoJuegos</header>
+    <header>
+        <h1>VideoJuegos</h1>
+    <nav class="nav_menu">
+        <ul class="dropmenu">
+            <li><a href="#">Armas</a>
+                <ul>
+                    <li><a href="#">Humanos</a></li>
+                    <li><a href="#">Mounstruos</a>
+                        <ul>
+                            <li><a href="#">GEARS</a></li>
+                            <li><a href="#">HALO</a></li>
+                            <li><a href="#">COD</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li><a href="#">Futbol</a>
+                <ul>
+                    <li><a href="#">Fortnited</a></li>
+                    <li><a href="#">Fifa</a></li>
+                    <li><a href="#">COD</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Animales</a></li>
+        </ul>
+    </nav>
+</header>
     <section>
-        <article id="izq"><p><img src="imagenes/fortnite.jpg" width="236px" height="214px">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis ut non sunt saepe, assumenda ratione sit quidem repellat qui, veritatis quo labore, aliquam aliquid? Molestias temporibus deleniti veniam perferendis deserunt!</p>
-        <p><img src="imagenes/gears.jpg" width="163px" height="160px">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam expedita nemo ad libero dolores, blanditiis voluptates corrupti soluta dolor quam iure incidunt laborum enim suscipit ipsum repellat? Saepe, sint at.</p>
-        <p>&nbsp</p>
-    </article>
-    <aside id="der"><p><img src="imagenes/halo.jpg" class="imgIzq">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima, odio dolores. Aliquid cum dolore maiores, voluptate est illum porro? Sapiente odit nobis aliquid unde earum voluptatibus, provident aliquam iusto expedita!</p>
-        <p>El mejor juego de todos los tiempos</p>
-    </aside>
+        <article id="izq">
+            <p><img src="../imagenes/fortnite.jpg" width="236px" height="214px">Lorem ipsum dolor sit amet consectetur
+                adipisicing elit. Facilis ut non sunt saepe, assumenda ratione sit quidem repellat qui, veritatis quo
+                labore, aliquam aliquid? Molestias temporibus deleniti veniam perferendis deserunt!</p>
+            <p><img src="../imagenes/fortnite.jpg" width="163px" height="160px">Lorem ipsum dolor sit amet consectetur
+                adipisicing elit. Quibusdam expedita nemo ad libero dolores, blanditiis voluptates corrupti soluta dolor
+                quam iure incidunt laborum enim suscipit ipsum repellat? Saepe, sint at.</p>
+            <p>&nbsp</p>
+        </article>
+        <aside id="der">
+            <p><img src="../imagenes/halo.jpg" class="imgIzq">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Minima, odio dolores. Aliquid cum dolore maiores, voluptate est illum porro? Sapiente odit nobis aliquid
+                unde earum voluptatibus, provident aliquam iusto expedita!</p>
+            <p>El mejor juego de todos los tiempos</p>
+        </aside>
     </section>
     <footer>
         <h3>Todos los derechos reservados</h3>
@@ -29,4 +185,5 @@
         </nav>
     </footer>
 </body>
+
 </html>
