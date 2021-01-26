@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/ui-lightness/jquery-ui-1.10.4.custom.min.css">
+    <script src="js/jquery-1.10.2.js" type="text/javascript"></script>
+    <script src="js/jquery-ui-1.10.4.custom.min.js" type="text/javascript"></script>
+    <title>Autocomplete</title>
+    <style>
+        
+    </style>
+    <script>
+       var juegos=["gta5","fifa 20","Call of duty","gears of war","halo 5","méxico"];
+       var paises=new Array();
+       paises.push("México");
+       paises.push("Colombia");
+       paises.push("Argentina");
+       paises.push("Honduras");
+       paises.push("Venezuela");
+
+       var acentos={"é":"e","ú":"u"};
+
+       $(document).ready(inicio);
+
+       function inicio(){
+         $("#juego").autocomplete({source:juegos});
+         
+         var normalizar= function(cadena){
+             var resp="";
+             for(var i=0;i<cadena.length;i++){
+                 resp+= acentos[cadena.charAt(i)] || cadena.charAt(i);
+             }
+             return resp;
+         }
+         $("#pais").autocomplete({
+             source:function(request,response){
+                 var cadena= new RegExp($.ui.autocomplete.escapeRegex(request.term,"i"));
+                 response($.grep(paises,function(value){
+                     value=value.label || value.value || value;
+                     return cadena.test(value) || cadena.test(normalizar(value));
+                 }));
+             }
+         });
+        }
+    </script>
+</head>
+<body>
+    <input type="text" id="juego">
+    <input type="text" id="pais">
+</body>
+</html>
