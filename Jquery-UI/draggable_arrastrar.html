@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/ui-lightness/jquery-ui-1.10.4.custom.min.css">
+    <script src="js/jquery-1.10.2.js" type="text/javascript"></script>
+    <script src="js/jquery-ui-1.10.4.custom.min.js" type="text/javascript"></script>
+    <title>Draggable</title>
+    <style>
+        .arrastrar{background-image: url(../imagenes/GTA5.jpg); width: 160px;height:196px}
+        .arrastrar2{background-image: url(../imagenes/halo.jpg); width: 160px;height:196px}
+        .contenedor{width: 200px;height: 600px; background-color: gray;border: solid;}
+    </style>
+    <script>
+        $(document).ready(inicio);
+        function inicio(){
+            $(".arrastrar").draggable();
+
+            $(".arrastrar2").draggable({
+                cursor:"move",
+                cursorAt:{top:100,left}
+            });
+        }
+    </script>
+</head>
+<body>
+    <div class="contenedor">
+        <div class="arrastrar">
+
+        </div>
+        <div class="arrastrar2 ui-widget-content">
+    
+        </div>
+    </div>
+    
+    
+</body>
+</html>
