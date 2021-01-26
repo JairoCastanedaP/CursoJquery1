@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/ui-lightness/jquery-ui-1.10.4.custom.min.css">
+    <script src="js/jquery-1.10.2.js" type="text/javascript"></script>
+    <script src="js/jquery-ui-1.10.4.custom.min.js" type="text/javascript"></script>
+    <title>Base de UI</title>
+    <style>
+        .ui-button  .mi-icono{background-image:url(circuloGris.png) !important; width: 16px; height: 16px;background-position: 0px 0px;}
+        .ui-button.ui-state-hover  .mi-icono{background-image:url(circuloAzul.png) !important; width: 16px; height: 16px;background-position: 0px 0px;}
+    </style>
+    <script>
+        $(function (){
+          $("button").button({icons:{primary:"mi-icono"}});
+        });
+    </script>
+</head>
+<body>
+    <button>Mi botón</button>
+</body>
+</html>
